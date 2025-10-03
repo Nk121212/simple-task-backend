@@ -1,3 +1,4 @@
+// server.js
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -10,10 +11,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("MileApp Recruitment Backend");
+  res.send("Simple Task Backend (local)");
 });
 app.use("/login", authRoutes);
 app.use("/tasks", taskRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Mock API running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+module.exports = app; // optional, kalau mau test
